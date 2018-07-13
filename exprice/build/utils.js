@@ -22,6 +22,10 @@ exports.cssLoaders = function (options) {
     }
   }
 
+  const stylusOptions = {
+    'resolve url': true
+  }
+
   const postcssLoader = {
     loader: 'postcss-loader',
     options: {
@@ -30,7 +34,7 @@ exports.cssLoaders = function (options) {
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders (loader, loaderOptions) {
+  function generateLoaders(loader, loaderOptions) {
     const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
 
     if (loader) {
@@ -61,8 +65,8 @@ exports.cssLoaders = function (options) {
     less: generateLoaders('less'),
     sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
-    stylus: generateLoaders('stylus'),
-    styl: generateLoaders('stylus')
+    stylus: generateLoaders('stylus', stylusOptions),
+    styl: generateLoaders('stylus', stylusOptions)
   }
 }
 

@@ -6,16 +6,22 @@ const path = require('path')
 
 module.exports = {
   dev: {
-
+    env: require('./dev.env'),
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {},
-
+    proxyTable: {
+      '/majax': {
+        target: 'http://m.qidian.com',
+        changeOrigin: true,
+        logLevel: 'debug',
+        pathRewrite: {}
+      }
+    },
     // Various Dev Server settings
-    host: 'localhost', // can be overwritten by process.env.HOST
-    port: 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
-    autoOpenBrowser: false,
+    // host: 'localhost', // can be overwritten by process.env.HOST
+    port: process.env.PORT || 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
+    autoOpenBrowser: true,
     errorOverlay: true,
     notifyOnErrors: true,
     poll: false, // https://webpack.js.org/configuration/dev-server/#devserver-watchoptions-
@@ -46,7 +52,7 @@ module.exports = {
   build: {
     // Template for index.html
     index: path.resolve(__dirname, '../dist/index.html'),
-
+    env: require('./prod.env'),
     // Paths
     assetsRoot: path.resolve(__dirname, 'dist'),
     assetsSubDirectory: 'static',

@@ -1,35 +1,35 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <cube-button @click="showImagePreview">点我看照片~</cube-button>
   </div>
 </template>
 
 <script>
+// import
 export default {
   name: 'HelloWorld',
   data() {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      imgs: [
+        require('@/assets/pic1.jpg'),
+        require('@/assets/pic2.jpg'),
+        require('@/assets/pic3.jpg')
+      ]
+    }
+  },
+  methods: {
+    showImagePreview() {
+      this.$createImagePreview({
+        imgs: this.imgs
+      }).show()
     }
   }
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-h1,
-h2 {
-  font-weight: normal;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
+<style lang="scss" scoped>
+$color: red;
+h1 {
+  color: $color;
 }
 </style>
