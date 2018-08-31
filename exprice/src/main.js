@@ -4,7 +4,7 @@ import Vue from 'vue'
 import Cube from 'cube-ui'
 import router from './router'
 import http from './js/service'
-// import './scss/common.scss'
+import '@/scss/common'
 
 Vue.prototype.$http = http
 Vue.config.productionTip = false

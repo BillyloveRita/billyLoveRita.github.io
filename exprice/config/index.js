@@ -10,14 +10,6 @@ module.exports = {
     // Paths
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    proxyTable: {
-      '/majax': {
-        target: 'http://m.qidian.com',
-        changeOrigin: true,
-        logLevel: 'debug',
-        pathRewrite: {}
-      }
-    },
     // Various Dev Server settings
     // host: 'localhost', // can be overwritten by process.env.HOST
     port: process.env.PORT || 8080, // can be overwritten by process.env.PORT, if port is in use, a free one will be determined
